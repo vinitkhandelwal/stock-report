@@ -1,4 +1,4 @@
-import java.math.BigInteger;
+package processor;
 
 public class Stock {
 
@@ -6,6 +6,11 @@ public class Stock {
     private String stockName;
     private String ISIN;
     private double value;
+    private double variation;
+
+
+    public Stock() {
+    }
 
     public Stock(double quantity, String stockName, String ISIN, double value) {
         this.quantity = quantity;
@@ -22,6 +27,21 @@ public class Stock {
                 ", ISIN='" + ISIN + '\'' +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Stock stock = (Stock) o;
+
+        return stockName.contains(stock.stockName);
+    }
+
+    @Override
+    public int hashCode() {
+        return stockName.hashCode();
     }
 
     public double getQuantity() {
@@ -55,4 +75,14 @@ public class Stock {
     public void setValue(double value) {
         this.value = value;
     }
+
+    public double getVariation() {
+        return variation;
+    }
+
+    public void setVariation(double variation) {
+        this.variation = variation;
+    }
+
+
 }
