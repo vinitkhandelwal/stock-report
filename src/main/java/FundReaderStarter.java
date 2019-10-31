@@ -16,6 +16,9 @@ public class FundReaderStarter {
     public static final String AXIS_AUGUST = "./input/MONTHLY_PORTFOLIO_AXISMF Aug 2019.xlsx";
     public static final String AXIS_SEPT = "./input/MONTHLY_PORTFOLIO_AXISMF - SEPT 2019.xls";
 
+    public static final String MIRAI_AUGUST = "./input/mirae-asset-monthly-full-portfolio-august-2019.xls";
+    public static final String MIRAI_SEPT = "./input/mirae-asset-monthly-full-portfolio-september-2019.xls";
+
     public static final String HDFC_JUN = "F:\\Programming\\java\\Project\\asss\\src\\main\\resources\\Monthly Portfolios for Jun 2019_0.xls";
     public static final String HDFC_JUL = "F:\\Programming\\java\\Project\\asss\\src\\main\\resources\\Monthly Portfolios for Jul 2019_0.xls";
     public static final String SBI_SEPT = "./input/all schemes monthly portfolio - as on 30 september 2019.xls";
@@ -30,6 +33,12 @@ public class FundReaderStarter {
     private static String[] columns = {"Stock Name", "Previous Quantity", "New Quantity", "Variation"};
 
     public static void main(String[] args) throws IOException, InvalidFormatException {
+
+        FundReader miraiFundReader = new MiraiFundReader();
+        Map<String, Double> miraicurrentMonth = miraiFundReader.fundReader(MIRAI_SEPT);
+        Map<String, Double> miraipreviousMonth = miraiFundReader.fundReader(MIRAI_AUGUST);
+        String miraioutputFile = output+"/mirai_aug_sept.xlsx";
+        List<Stock> miraiStocks = writeIntoExcel(miraipreviousMonth,miraicurrentMonth,miraioutputFile);
 
         FundReader hdfcReader = new HdfcFundReader();
 

@@ -2,38 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2550ffa-6456-4473-9fde-c2f4bd040786" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/MONTHLY_PORTFOLIO_AXISMF - SEPT 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/MONTHLY_PORTFOLIO_AXISMF Aug 2019.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/Monthly Portfolios for Aug 2019 (1).xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/Monthly Portfolios for Aug 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/Monthly Portfolios for Jul 2019_0.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/Monthly Portfolios for Jun 2019_0.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/Monthly Portfolios for Sep 2019_3.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/all schemes monthly portfolio - as on 30 june 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/all schemes monthly portfolio - as on 30 september 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/all schemes monthly portfolio - as on 31 august 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/all schemes monthly portfolio - as on 31 july 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/all schemes monthly portfolio - as on 31 may 2019.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/processor/AxisFundReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/processor/FundReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/processor/HdfcFundReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/processor/SbiFundReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/processor/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/mirae-asset-monthly-full-portfolio-august-2019.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/mirae-asset-monthly-full-portfolio-september-2019.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/processor/MiraiFundReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FundReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FundReaderStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Stock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/hdfc_aug_sept.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/hdfc_july_aug.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/hdfc_jun_july.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/sbi-july-aug.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/sbi_aug_sept.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/sbi_jul_aug.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/sbi_jun_july.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output/sbi_may_jun.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FundReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Stock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FundReaderStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FundReaderStarter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,14 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FundReaderStarter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FundReaderStarter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FundReaderStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="75" column="79" selection-start-line="75" selection-start-column="79" selection-end-line="75" selection-end-column="79" />
+            <state relative-caret-position="119">
+              <caret line="37" column="70" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MiraiFundReader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/processor/MiraiFundReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="38" column="86" selection-start-line="38" selection-start-column="86" selection-end-line="38" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -113,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/processor/HdfcFundReader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="497">
-              <caret line="61" column="20" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="61" selection-end-column="20" />
+              <caret line="61" column="20" selection-start-line="15" selection-start-column="7" selection-end-line="61" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/main/java/processor/AxisFundReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/processor/Stock.java" />
         <option value="$PROJECT_DIR$/src/main/java/FundReaderStarter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/processor/MiraiFundReader.java" />
       </list>
     </option>
   </component>
@@ -230,11 +213,6 @@
               <item name="asss" type="b2602c69:ProjectViewProjectNode" />
               <item name="stock-report" type="462c0819:PsiDirectoryNode" />
               <item name="input" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="asss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stock-report" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="asss" type="b2602c69:ProjectViewProjectNode" />
@@ -289,6 +267,9 @@
       <recent name="D:\personal\development\delightos\stock-report" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="processor" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="processor" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -564,7 +545,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39285713" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.5172811" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="SBT Console" />
       <window_info anchor="bottom" id="Messages" />
@@ -601,12 +582,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/FundReaderStarter.java</url>
-          <line>75</line>
+          <line>86</line>
           <properties />
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/processor/MiraiFundReader.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -616,7 +603,17 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>e</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>hdfcStocks.indexOf(e)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>hdfcStocks</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -648,17 +645,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/processor/HdfcFundReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
-          <caret line="61" column="20" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="61" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/processor/FundReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <caret line="61" column="20" selection-start-line="15" selection-start-column="7" selection-end-line="61" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -669,23 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/processor/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#1014#1015#0" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
-            <element signature="e#1341#1342#0" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-            <element signature="e#1433#1434#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -717,13 +687,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/processor/Stock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1341#1342#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FundReaderStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="75" column="79" selection-start-line="75" selection-start-column="79" selection-end-line="75" selection-end-column="79" />
+        <state relative-caret-position="119">
+          <caret line="37" column="70" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/processor/FundReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/processor/MiraiFundReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="38" column="86" selection-start-line="38" selection-start-column="86" selection-end-line="38" selection-end-column="86" />
         </state>
       </provider>
     </entry>
