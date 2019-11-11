@@ -13,15 +13,19 @@ public class FundReaderStarter {
 
     public static final String AUGUST = "./input/Monthly Portfolios for Aug 2019.xls";
     public static final String SEPT = "./input/Monthly Portfolios for Sep 2019_3.xls";
+    public static final String OCT = "./input/Monthly Portfolios for Oct 2019.xls";
     public static final String AXIS_AUGUST = "./input/MONTHLY_PORTFOLIO_AXISMF Aug 2019.xlsx";
     public static final String AXIS_SEPT = "./input/MONTHLY_PORTFOLIO_AXISMF - SEPT 2019.xls";
+    public static final String AXIS_OCT = "./input/MONTHLY_PORTFOLIO_AXISMF-Oct 2019.xlsx";
 
     public static final String MIRAI_AUGUST = "./input/mirae-asset-monthly-full-portfolio-august-2019.xls";
     public static final String MIRAI_SEPT = "./input/mirae-asset-monthly-full-portfolio-september-2019.xls";
+    public static final String MIRAI_OCT = "./input/mirae-asset-full-portfolio---october-2019-(2).xls";
 
     public static final String HDFC_JUN = "F:\\Programming\\java\\Project\\asss\\src\\main\\resources\\Monthly Portfolios for Jun 2019_0.xls";
     public static final String HDFC_JUL = "F:\\Programming\\java\\Project\\asss\\src\\main\\resources\\Monthly Portfolios for Jul 2019_0.xls";
     public static final String SBI_SEPT = "./input/all schemes monthly portfolio - as on 30 september 2019.xls";
+    public static final String SBI_OCT = "./input/all schemes monthly portfolio - as on 31 october 2019.xls";
     public static final String SBI_AUG = "./input/all schemes monthly portfolio - as on 31 august 2019.xls";
     public static final String SBI_JULY = "F:\\Programming\\java\\Project\\asss\\src\\main\\resources\\all schemes monthly portfolio - as on 31 july 2019.xls";
     public static final String SBI_JUN = "F:\\Programming\\java\\Project\\asss\\src\\main\\resources\\all schemes monthly portfolio - as on 30 june 2019.xls";
@@ -35,61 +39,84 @@ public class FundReaderStarter {
     public static void main(String[] args) throws IOException, InvalidFormatException {
 
         FundReader miraiFundReader = new MiraiFundReader();
-        Map<String, Double> miraicurrentMonth = miraiFundReader.fundReader(MIRAI_SEPT);
-        Map<String, Double> miraipreviousMonth = miraiFundReader.fundReader(MIRAI_AUGUST);
-        String miraioutputFile = output+"/mirai_aug_sept.xlsx";
+        Map<String, Double> miraicurrentMonth = miraiFundReader.fundReader(MIRAI_OCT).get("quantity");
+        Map<String, Double> miraipreviousMonth = miraiFundReader.fundReader(MIRAI_SEPT).get("quantity");
+        String miraioutputFile = output+"/mirai_sept_oct.xlsx";
         List<Stock> miraiStocks = writeIntoExcel(miraipreviousMonth,miraicurrentMonth,miraioutputFile);
 
-        FundReader hdfcReader = new HdfcFundReader();
+        Map<String, Double> mirraicurrentMonthValue = miraiFundReader.fundReader(MIRAI_OCT).get("value");;
+        Map<String, Double> mirraipreviousMonthValue = miraiFundReader.fundReader(MIRAI_SEPT).get("value");;
+        String mirraioutputFileValue = output+"/mirrai_sept_oct_value.xlsx";
+        writeIntoExcel(mirraipreviousMonthValue,mirraicurrentMonthValue,mirraioutputFileValue);
 
-        Map<String, Double> currentMonth = hdfcReader.fundReader(SEPT);
-        Map<String, Double> previousMonth = hdfcReader.fundReader(AUGUST);
-        String outputFile = output+"/hdfc_aug_sept.xlsx";
+
+
+
+       /* FundReader hdfcReader = new HdfcFundReader();
+
+        Map<String, Double> currentMonth = hdfcReader.fundReader(OCT).get("quantity");
+        Map<String, Double> previousMonth = hdfcReader.fundReader(SEPT).get("quantity");
+        String outputFile = output+"/hdfc_sept_oct_quantity.xlsx";
         List<Stock> hdfcStocks = writeIntoExcel(previousMonth,currentMonth,outputFile);
 
-        FundReader sbiReader = new SbiFundReader();
-        Map<String, Double> sbicurrentMonth = sbiReader.fundReader(SBI_SEPT);
-        Map<String, Double> sbipreviousMonth = sbiReader.fundReader(SBI_AUG);
-        String sbioutputFile = output+"/sbi_aug_sept.xlsx";
+        Map<String, Double> currentMonthValue = hdfcReader.fundReader(OCT).get("value");
+        Map<String, Double> previousMonthValue = hdfcReader.fundReader(SEPT).get("value");
+        String outputFileValue = output+"/hdfc_sept_oct_value.xlsx";
+        writeIntoExcel(previousMonthValue,currentMonthValue,outputFileValue);*/
+
+       /* FundReader sbiReader = new SbiFundReader();
+        Map<String, Double> sbicurrentMonth = sbiReader.fundReader(SBI_OCT).get("quantity");;
+        Map<String, Double> sbipreviousMonth = sbiReader.fundReader(SBI_SEPT).get("quantity");;
+        String sbioutputFile = output+"/sbi_sept_oct_quantity.xlsx";
         List<Stock> sbiStocks = writeIntoExcel(sbipreviousMonth,sbicurrentMonth,sbioutputFile);
 
+        Map<String, Double> sbicurrentMonthValue = sbiReader.fundReader(SBI_OCT).get("value");;
+        Map<String, Double> sbipreviousMonthValue = sbiReader.fundReader(SBI_SEPT).get("value");;
+        String sbioutputFileValue = output+"/sbi_sept_oct_value.xlsx";
+        writeIntoExcel(sbipreviousMonthValue,sbicurrentMonthValue,sbioutputFileValue);*/
+//
         FundReader axisFundReader = new AxisFundReader();
-        Map<String, Double> axiscurrentMonth = axisFundReader.fundReader(AXIS_SEPT);
-        Map<String, Double> axispreviousMonth = axisFundReader.fundReader(AXIS_AUGUST);
-        String axisoutputFile = output+"/axis_aug_sept.xlsx";
+        Map<String, Double> axiscurrentMonth = axisFundReader.fundReader(AXIS_OCT).get("quantity");
+        Map<String, Double> axispreviousMonth = axisFundReader.fundReader(AXIS_SEPT).get("quantity");
+        String axisoutputFile = output+"/axis_sept_oct.xlsx";
         List<Stock> axisStocks = writeIntoExcel(axispreviousMonth,axiscurrentMonth,axisoutputFile);
 
-        System.out.println("Between axis and sbi");
-        axisStocks.stream().filter(axis ->
-                sbiStocks.stream().anyMatch(hdfc -> axis.getStockName().contains(hdfc.getStockName())
-                        && (axis.getVariation() > 0 && hdfc.getVariation() > 0))).
-                forEach(e -> System.out.println(e.getStockName() +" , "+ e.getVariation()));
-
-        System.out.println("--------------------------");
-
-        System.out.println("Between axis and hdfc");
-        axisStocks.stream().filter(axis ->
-                hdfcStocks.stream().anyMatch(hdfc -> axis.getStockName().contains(hdfc.getStockName())
-                        && (axis.getVariation() > 0 && hdfc.getVariation() > 0))).
-                forEach(e -> System.out.println(e.getStockName() +" , "+ e.getVariation()));
-
-
-        System.out.println("--------------------------");
-
-        System.out.println("Between sbi and hdfc");
-
-        sbiStocks.stream().filter(axis ->
-                hdfcStocks.stream().anyMatch(hdfc -> axis.getStockName().contains(hdfc.getStockName())
-                        && (axis.getVariation() > 0 && hdfc.getVariation() > 0))).
-                forEach(e -> {try{System.out.println(e.getStockName() +" , "+ e.getVariation() + " ," +
-                        hdfcStocks.get(hdfcStocks.indexOf(e) ).getVariation());}
-                        catch(Exception ex){
-                            System.out.println(hdfcStocks.indexOf(e) + " " + e);
-                        }
-                });
-
-
-        System.out.println("----------------------------");
+        Map<String, Double> axiscurrentMonthValue = axisFundReader.fundReader(AXIS_OCT).get("value");;
+        Map<String, Double> axispreviousMonthValue = axisFundReader.fundReader(AXIS_SEPT).get("value");;
+        String axisoutputFileValue = output+"/axis_sept_oct_value.xlsx";
+        writeIntoExcel(axispreviousMonthValue,axiscurrentMonthValue,axisoutputFileValue);
+//
+//        System.out.println("Between axis and sbi");
+//        axisStocks.stream().filter(axis ->
+//                sbiStocks.stream().anyMatch(hdfc -> axis.getStockName().contains(hdfc.getStockName())
+//                        && (axis.getVariation() > 0 && hdfc.getVariation() > 0))).
+//                forEach(e -> System.out.println(e.getStockName() +" , "+ e.getVariation()));
+//
+//        System.out.println("--------------------------");
+//
+//        System.out.println("Between axis and hdfc");
+//        axisStocks.stream().filter(axis ->
+//                hdfcStocks.stream().anyMatch(hdfc -> axis.getStockName().contains(hdfc.getStockName())
+//                        && (axis.getVariation() > 0 && hdfc.getVariation() > 0))).
+//                forEach(e -> System.out.println(e.getStockName() +" , "+ e.getVariation()));
+//
+//
+//        System.out.println("--------------------------");
+//
+//        System.out.println("Between sbi and hdfc");
+//
+//        sbiStocks.stream().filter(axis ->
+//                hdfcStocks.stream().anyMatch(hdfc -> axis.getStockName().contains(hdfc.getStockName())
+//                        && (axis.getVariation() > 0 && hdfc.getVariation() > 0))).
+//                forEach(e -> {try{System.out.println(e.getStockName() +" , "+ e.getVariation() + " ," +
+//                        hdfcStocks.get(hdfcStocks.indexOf(e) ).getVariation());}
+//                        catch(Exception ex){
+//                            System.out.println(hdfcStocks.indexOf(e) + " " + e);
+//                        }
+//                });
+//
+//
+//        System.out.println("----------------------------");
 
     }
 

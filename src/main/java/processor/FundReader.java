@@ -7,5 +7,5 @@ import java.util.Map;
 
 public interface FundReader {
 
-    public Map<String,Double> fundReader(String filePath) throws IOException, InvalidFormatException;
+    public Map<String, Map<String,Double>> fundReader(String filePath) throws IOException, InvalidFormatException;
 }

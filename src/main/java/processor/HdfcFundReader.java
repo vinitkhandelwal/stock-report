@@ -12,7 +12,7 @@ public class HdfcFundReader implements FundReader {
 
 
     @Override
-    public Map<String, Double> fundReader(String filePath) throws IOException, InvalidFormatException {
+     public Map<String, Map<String,Double>>  fundReader(String filePath) throws IOException, InvalidFormatException {
         Workbook workbook = WorkbookFactory.create(new File(filePath));
 
         // Retrieving the number of sheets in the Workbook
@@ -27,7 +27,7 @@ public class HdfcFundReader implements FundReader {
         List<String> hdfcSheetName = Arrays.asList("HDFCSX","HDFCSXEXTF","HDFCNY","HDFCNYEXTF","HCHARITYAP","HDINFG",
                 "HDFCEQ","HDFCTA","HDFCTS","HDFCGR","HEOFJUN117","HDFCEOF217","HDFCPM","HDFCCS","HDFCCB" ,"HDFCLARGEF",
                 "HDFCRETEQP","HDFCAR","HDFCHOF117","MY2005","HDFCGF","HDFCRETHEP","HDFCMY","MIDCAP","HDFCSMALLF","HMIPLT",
-                "HDFCRETHDP");
+                "HDFCRETHDP","HDFCT2");
 
 //        List<String> hdfcSheetName = Arrays.asList("HDFCSX","HDFCSXEXTF");
         workbook.forEach(sheet -> {
@@ -53,12 +53,26 @@ public class HdfcFundReader implements FundReader {
             }
         });
 
-        Map<String,Double> map1 =   stocks.stream().collect(Collectors.toMap(Stock::getStockName, Stock::getQuantity,(oldValue, newValue) -> oldValue+newValue));
-        Map<String,Double> map2 =  map1.entrySet().
+        Map<String,Double> quantityTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getStockName, Stock::getQuantity,(oldValue, newValue) -> oldValue+newValue));
+        Map<String,Double> quantityMap =  quantityTempMap.entrySet().
                 stream().
                 sorted(Map.Entry.comparingByValue()).
                 collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-        return map2;
+        Map<String,Double> valuationTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getStockName, Stock::getValue,(oldValue, newValue) -> oldValue+newValue));
+        Map<String,Double> valuationMap =  valuationTempMap.entrySet().
+                stream().
+                sorted(Map.Entry.comparingByValue()).
+                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+        System.out.println(valuationMap);
+
+        Map<String, Map<String,Double>> result = new HashMap<>();
+
+        result.put("quantity",quantityMap);
+        result.put("value",valuationMap);
+
+
+        return result;
     }
 }
