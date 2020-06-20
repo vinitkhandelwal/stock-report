@@ -55,13 +55,13 @@ public class AxisFundReader implements FundReader {
             }
         });
 
-        Map<String,Double> quantityTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getStockName, Stock::getQuantity,(oldValue, newValue) -> oldValue+newValue));
+        Map<String,Double> quantityTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getISIN, Stock::getQuantity,(oldValue, newValue) -> oldValue+newValue));
         Map<String,Double> quantityMap =  quantityTempMap.entrySet().
                 stream().
                 sorted(Map.Entry.comparingByValue()).
                 collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-        Map<String,Double> valuationTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getStockName, Stock::getValue,(oldValue, newValue) -> oldValue+newValue));
+        Map<String,Double> valuationTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getISIN, Stock::getValue,(oldValue, newValue) -> oldValue+newValue));
         Map<String,Double> valuationMap =  valuationTempMap.entrySet().
                 stream().
                 sorted(Map.Entry.comparingByValue()).
