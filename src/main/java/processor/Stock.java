@@ -1,5 +1,7 @@
 package processor;
 
+import java.util.Objects;
+
 public class Stock {
 
     private double quantity;
@@ -7,6 +9,7 @@ public class Stock {
     private String ISIN;
     private double value;
     private double variation;
+    private String category;
 
 
     public Stock() {
@@ -16,6 +19,14 @@ public class Stock {
         this.quantity = quantity;
         this.stockName = stockName;
         this.ISIN = ISIN;
+        this.value = value;
+    }
+
+    public Stock(double quantity, String stockName, String ISIN, String category, double value) {
+        this.quantity = quantity;
+        this.stockName = stockName;
+        this.ISIN = ISIN;
+        this.category = category;
         this.value = value;
     }
 
@@ -33,15 +44,24 @@ public class Stock {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Stock stock = (Stock) o;
-
-        return stockName.contains(stock.stockName);
+        return ISIN.equals(stock.ISIN);
     }
+
+    //    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        Stock stock = (Stock) o;
+//
+//        return stockName.contains(stock.stockName);
+//    }
+
 
     @Override
     public int hashCode() {
-        return stockName.hashCode();
+        return Objects.hash(ISIN);
     }
 
     public double getQuantity() {
@@ -84,5 +104,11 @@ public class Stock {
         this.variation = variation;
     }
 
+    public String getCategory() {
+        return category;
+    }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

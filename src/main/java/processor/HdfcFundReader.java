@@ -1,5 +1,6 @@
 package processor;
 
+import Utils.Converter;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 
@@ -12,7 +13,7 @@ public class HdfcFundReader implements FundReader {
 
 
     @Override
-     public Map<String, Map<String,Double>>  fundReader(String filePath) throws IOException, InvalidFormatException {
+     public Map<String, Map<Stock,Double>>  fundReader(String filePath) throws IOException, InvalidFormatException {
         Workbook workbook = WorkbookFactory.create(new File(filePath));
 
         // Retrieving the number of sheets in the Workbook
@@ -39,7 +40,7 @@ public class HdfcFundReader implements FundReader {
                         if(row.getCell(1).getCellTypeEnum().equals(CellType.STRING) && row.getCell(1).getStringCellValue().startsWith("IN")) {
                             String stockName = row.getCell(3).getStringCellValue();
                             Stock stock = new Stock(row.getCell(5).getNumericCellValue(), stockName,
-                                    row.getCell(1).getStringCellValue(), row.getCell(6).getNumericCellValue());
+                                    row.getCell(1).getStringCellValue(),row.getCell(4).getStringCellValue(), row.getCell(6).getNumericCellValue());
 
                             stocks.add(stock);
                         }
@@ -53,25 +54,10 @@ public class HdfcFundReader implements FundReader {
             }
         });
 
-        Map<String,Double> quantityTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getISIN, Stock::getQuantity,(oldValue, newValue) -> oldValue+newValue));
-        Map<String,Double> quantityMap =  quantityTempMap.entrySet().
-                stream().
-                sorted(Map.Entry.comparingByValue()).
-                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        Map<String, Map<Stock,Double>> result = new HashMap<>();
 
-        Map<String,Double> valuationTempMap =   stocks.stream().collect(Collectors.toMap(Stock::getISIN, Stock::getValue,(oldValue, newValue) -> oldValue+newValue));
-        Map<String,Double> valuationMap =  valuationTempMap.entrySet().
-                stream().
-                sorted(Map.Entry.comparingByValue()).
-                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-
-        System.out.println(valuationMap);
-
-        Map<String, Map<String,Double>> result = new HashMap<>();
-
-        result.put("quantity",quantityMap);
-        result.put("value",valuationMap);
-
+        result.put("quantity", Converter.convertStockListToMapBasedOnQuantity(stocks));
+        result.put("value",Converter.convertStockListToMapBasedOnValuation(stocks));
 
         return result;
     }
