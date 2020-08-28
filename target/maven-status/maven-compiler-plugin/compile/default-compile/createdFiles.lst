@@ -1,0 +1,8 @@
+processor\SbiFundReader.class
+processor\FundReader.class
+processor\MiraiFundReader.class
+processor\AxisFundReader.class
+Test.class
+processor\HdfcFundReader.class
+FundReaderStarter.class
+processor\Stock.class
